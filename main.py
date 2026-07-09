@@ -31,10 +31,12 @@ all_nationalities = drivers_operations.get_unique_nationalities()
 st.sidebar.title("Panel filtrowania")
 st.sidebar.header("Filtry wyścigów")
 selected_year_race = st.sidebar.slider("Wybierz zakres lat", race_year_first, race_year_last, (race_year_first, race_year_last))
+st.sidebar.multiselect("Wybierz tor wyścigowy", options=circuits_df['name'].unique(), default=circuits_df['name'].unique()[:3])
 st.sidebar.space(size="xxsmall")
 st.sidebar.header("Filtry kierowców")
 selected_yob_drivers = st.sidebar.slider("Wybierz rok urodzenia kierowcy",driver_yob_first, driver_yob_last, (driver_yob_first,driver_yob_last))
 selected_nationalities = st.sidebar.multiselect("Wybierz narodowść", options=all_nationalities, default=all_nationalities[:3])
+
 
 #MAINPAGE
 st.title(f"Analiza wyścigów F1 na lata od {race_year_first} do {race_year_last}")
