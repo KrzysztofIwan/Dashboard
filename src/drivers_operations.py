@@ -15,7 +15,7 @@ class DriversOperations:
     def get_unique_nationalities(self):
         return sorted(self.df['nationality'].dropna().unique())
 
-    def return_drivers_preformance(self, min_year: int, max_year: int, selected_nationalities: list):
+    def return_drivers_performance(self, min_year: int, max_year: int, selected_nationalities: list):
         mask = (self.df['dob'].dt.year >= min_year) & (self.df['dob'].dt.year <= max_year)
         if selected_nationalities:
             mask = mask & (self.df['nationality'].isin(selected_nationalities))
